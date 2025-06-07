@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title> Administración de Clientes </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.1.8/datatables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.1.8/datatables.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="css/bootstrapValidator.css" rel="stylesheet">
+
+    <script src="js/bootstrapValidator.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!-- consumir fragmento cabecera-->
+<div th:insert="template/UITemplate :: cabecera5"></div>
+
+<div class="container">
+    <div class="row form-group m-5" style="text-align: center">
+        <h3>Gesti&oacute;n Clientes</h3>
+    </div>
+
+    <div class="row form-group m-5">
+
+        <div class="col-sm-3  ">
+            <div class="input-group col-lg-12 ">
+                <span class="input-group-text"><i class="bi bi-boxes"></i></span>
+                <input
+                        autocomplete="off" class="form-control input-sm"
+                        id="id_txt_ruc" maxlength="10" name="filtro"
+                        placeholder="Ingrese el RUC" type="text">
+            </div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="input-group  col-lg-12 ">
+                <span class="input-group-text"><i class="bi bi-boxes"></i></span><input
+                    autocomplete="off" class="form-control input-sm" id="id_txt_raz_soc"
+                    maxlength="30" name="filtro" placeholder="Ingrese la razon social"
+                    type="text">
+            </div>
+        </div>
+        <div class="col-sm-2 col-sm-5 col-mb-3">
+
+            <!-- Button to Search-->
+            <button class="btn btn-primary btn-block " id="id_btn_filtrar_cliente"
+                    type="button"><i class="bi bi-search"></i> Buscar
+            </button>
+
+            <!-- Button to Open the Modal -->
+            <button class='btn btn-success btn-block ' data-bs-target="#id_div_modal_cliente"
+                    data-bs-toggle='modal'
+                    type="button"><i class="bi bi-plus-square"></i> Nuevo
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid p-5">
+    <table class="table  table-hover  table-bordered " id="id_table">
+        <thead class="table-dark">
+        <tr>
+            <th style="width: 5%">ID</th>
+            <th>nombres y apellidos</th>
+            <th>dni</th>
+            <th>email</th>
+            <th>direccion</th>
+            <th>telefono</th>
+            <th>fecha creacion</th>
+            <th>fecha actualizacion</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<!-- consumir fragmento cabecera-->
+<div th:insert="template/UITemplate :: modelsCliente"></div>
+
+<script th:src="@{../js/scriptCliente.js}">
+</script>
+<script th:src="@{../js/validacionCliente.js}">
+</script>
+
+</body>
+</html>
